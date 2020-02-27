@@ -1,11 +1,9 @@
-import Vue from 'vue';
+import Vue from 'vue'
+import App from './home/App.vue'
 
-
-console.log('400 home js')
-
-var vm = new Vue({
-    el: '#vueId',
-    render: function(createElement) {
-      return createElement('div', 'Hello world');
-    }
-  });
+new Vue({
+  el:'#vueId',
+  render(h) {
+    return h(App)
+  }
+});

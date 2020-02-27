@@ -1,19 +1,28 @@
+
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+
+
 module.exports = {
+
     mode: 'development',
+
     entry: {
         home: './js/home.js',
         about: './js/about.js'
     },
+
     output: {
         path: __dirname + '/dist',
         filename: "[name].bundle.js"
     },
+
     resolve: {
         alias: {
             'vue$': 'vue/dist/vue.esm.js'
         },
         extensions: ['*', '.js', '.vue', '.json']
     },
+
     module: {
         rules: [
             {
@@ -22,7 +31,17 @@ module.exports = {
             }
         ]
     },
-    watchOptions: {
-        aggregateTimeout: 3000
-    }
+
+    plugins: [
+        new VueLoaderPlugin()
+    ],
+
+watch: true
+
+// watchOptions: {
+//     aggregateTimeout: 1000,
+//     poll: true
+// }
+
+
 }
