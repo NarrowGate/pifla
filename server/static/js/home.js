@@ -1,7 +1,7 @@
 import Vue from 'vue';
 
 
-console.log('home js')
+console.log('400 home js')
 
 var vm = new Vue({
     el: '#vueId',

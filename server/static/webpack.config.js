@@ -21,5 +21,8 @@ module.exports = {
                 loader: 'vue-loader'
             }
         ]
-    }    
+    },
+    watchOptions: {
+        aggregateTimeout: 3000
+    }
 }
