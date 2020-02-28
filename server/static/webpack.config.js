@@ -8,7 +8,8 @@ module.exports = {
 
     entry: {
         home: './js/home.js',
-        about: './js/about.js'
+        about: './js/about.js',
+        todolist: './js/to-do-list.js'
     },
 
     output: {

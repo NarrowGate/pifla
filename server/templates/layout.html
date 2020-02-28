@@ -20,15 +20,18 @@
 
     {% include "includes/nav.html" %}
 
-{% block content %}
+    {% block content %}
 
-{% endblock%}
+    {% endblock%}
 
     {% include "includes/footer.html" %}
 
   </div>
 
-  <script src="{{ url_for('static',filename='dist/home.bundle.js') }}"></script>
+  {% block scripts %}
+
+  {% endblock%}
+
 
 </body>
 </html>    

@@ -13,3 +13,8 @@
 
   {% endblock %}
   
+  {% block scripts %}
+
+    <script src="{{ url_for('static',filename='dist/home.bundle.js') }}"></script>
+    
+  {% endblock%}

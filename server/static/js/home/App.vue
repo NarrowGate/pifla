@@ -1,7 +1,4 @@
 
-
-
-
 <template>
 
     <div class="theApp"> 
@@ -13,18 +10,21 @@
 <script>
 
 
-    module.exports = {
+    export default {
 
-        data: function() {
+        data() {
             return {
                 someData: '66666osksknjs[df'
             }
         },
+
         methods: {
-            deleClicked: function() {
+
+            deleClicked() {
                 //this.$emit('clicked');
                 alert('del clicked');
             }
+
         }
     }
 </script>

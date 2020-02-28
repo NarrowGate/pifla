@@ -9,12 +9,14 @@
 
 
       <div id="toDoWrap">
-  
-          <h2>To do list</h2>
-      
-          <to-do-list>
-          </to-do-list>
+
       
       </div>
 
   {% endblock %}
+
+  {% block scripts %}
+
+    <script src="{{ url_for('static',filename='dist/todolist.bundle.js') }}"></script>
+    
+  {% endblock%}  
