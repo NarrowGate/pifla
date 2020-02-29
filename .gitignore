@@ -2,3 +2,4 @@ server/static/node_modules
 .DS_Store
 server/static/package-lock.json
 server/static/dist
+fa

@@ -1,23 +1,20 @@
 
 <template>
     
-<ul>
-    <item></item> 
-    <item></item> 
-    <item></item> 
-    <item></item> 
-</ul>
+    <ul class='toDoList list-group"'>
+        <item v-for="(item, index) in items" :key="index" :item="item"></item> 
+    </ul>
 
 </template>
 
 <script>
 
-    import item from './item.vue'
+    import Item from './Item.vue'
 
     export default {
         
         components: {
-            item
+            Item
         },
 
         data() {
