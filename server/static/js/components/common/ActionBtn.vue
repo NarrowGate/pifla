@@ -1,14 +1,16 @@
 
 <template>
 
-    <a class="delete" :click="deleClicked">
-        <i class="fa fa-trash" aria-hidden="true"></i>
+    <a class="actions">
+        <i class="fa" :class="action" aria-hidden="true"></i>
     </a>
 
 </template>
 
 <script>
     module.exports = {
+
+        props: ['action'],
 
         data: function() {
             return {

@@ -76,3 +76,12 @@ ul.toDoList li .actions {
 }
 
 /* toDoList component end*/
+
+/* Actions */
+
+a.actions:hover {
+    cursor: pointer;
+    color: #161C2A;
+}
+
+/* Actions end */
