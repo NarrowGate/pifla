@@ -1,30 +1,60 @@
 <template>
     <li class="list-group-item">
-        <input type="text" class="form-control" readonly :value="item">
 
-        <action-btn action="fa-edit"></action-btn>
-        <action-btn action="fa-trash"></action-btn>
+        <input type="text" class="form-control" 
+            :readonly="!isEdit" 
+            :value="item"
+            :ind="index" 
+            @blur="saveItem">
+
+        <edit-btn @clicked="editItem"></edit-btn>
+        <delete-btn @clicked="deleteItem"></delete-btn>
 
     </li>
 </template>
 
 <script>
 
-    import ActionBtn from "../components/common/ActionBtn.vue"
+    import EditBtn from "../components/common/EditBtn.vue"
+    import DeleteBtn from "../components/common/DeleteBtn.vue"
 
     export default {
 
         components: {
-            ActionBtn
+            EditBtn,
+            DeleteBtn
         },
 
         data() {
             return {
-                sdf: 'kskks'
+                sdf: 'kskks',
+                isEdit: false
             }
         },
 
-        props:['item']
+        props:['item', 'index'],
+
+        methods: {
+
+            editItem: function(item) {
+                this.isEdit = true;
+                this.$emit('editItem', this.item);
+            },
+
+            saveItem: function() {
+
+                if(!this.isEdit)  return;
+
+                this.isEdit = false;
+                this.$emit('saveItem', { item: this.item, itemInd: this.index});
+            },
+
+            deleteItem: function() {
+                this.$emit('deleteItem', this.item);
+            }        
+
+        }
+
 
     }
 </script>

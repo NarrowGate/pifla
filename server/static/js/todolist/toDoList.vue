@@ -2,7 +2,14 @@
 <template>
     
     <ul class='toDoList list-group"'>
-        <item v-for="(item, index) in items" :key="index" :item="item"></item> 
+        <item v-for="(item, index) in items" 
+            :key="index"
+            :index="index" 
+            :item="item" 
+            @editItem="editItem" 
+            @deleteItem="deleteItem" 
+            @saveItem="saveItem">
+        </item> 
     </ul>
 
 </template>
@@ -22,15 +29,23 @@
             return {
                 items : ['a', 'b', 'abdsdfs'],
                 isEmpty: false,
-                showModal: false,
-                deleteItem: 0
+                showModal: false
             }
 
         },
         
         methods: {
 
+            editItem : function(item) {
 
+            },
+            saveItem : function(item) {
+                debugger;
+                this.items[item.itemInd] = item.item;
+            },            
+            deleteItem : function(item) {
+
+            }
 
         }
 
