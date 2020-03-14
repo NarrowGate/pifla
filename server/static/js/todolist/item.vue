@@ -5,10 +5,12 @@
             :readonly="!isEdit" 
             :value="item"
             :ind="index" 
-            @blur="saveItem">
+            @blur="saveItem"
+            >
 
-        <edit-btn @clicked="editItem"></edit-btn>
-        <delete-btn @clicked="deleteItem"></delete-btn>
+        <edit-btn @click="editItem"></edit-btn>
+        <!-- <delete-btn @clicked="deleteItem"></delete-btn> -->
+        <div @click="editItem">dfsdfs</div>
 
     </li>
 </template>
@@ -36,9 +38,25 @@
 
         methods: {
 
-            editItem: function(item) {
-                this.isEdit = true;
-                this.$emit('editItem', this.item);
+            // editItem: function(item) {
+            //     this.isEdit = true;
+            //     this.$emit('editItem', this.item);
+            // },
+
+            // saveItem: function() {
+
+            //     if(!this.isEdit)  return;
+
+            //     this.isEdit = false;
+            //     this.$emit('saveItem', { item: this.item, itemInd: this.index});
+            // },
+
+            // deleteItem: function() {
+            //     this.$emit('deleteItem', this.item);
+            // }
+            
+            editItem : function(item) {
+                alert('lls');
             },
 
             saveItem: function() {
@@ -47,11 +65,7 @@
 
                 this.isEdit = false;
                 this.$emit('saveItem', { item: this.item, itemInd: this.index});
-            },
-
-            deleteItem: function() {
-                this.$emit('deleteItem', this.item);
-            }        
+            },            
 
         }
 

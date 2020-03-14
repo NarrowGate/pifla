@@ -16,8 +16,8 @@
             }
         },
         methods: {
-            editClicked: function(item) {
-                this.$emit('clicked');
+            editClicked: function(event) {
+                this.$emit('clicked', event);
             }
         }
     }
