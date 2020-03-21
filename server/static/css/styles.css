@@ -85,3 +85,10 @@ a.actions:hover {
 }
 
 /* Actions end */
+
+.addContainer {
+    background: white;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+}

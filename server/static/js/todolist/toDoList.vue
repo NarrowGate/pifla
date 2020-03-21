@@ -1,21 +1,24 @@
 
 <template>
-    
-    <ul class='toDoList list-group"'>
-        <li v-for="(item, key) of items" class="list-group-item" 
-            :key=key>
+    <div>
+        <div class="addContainer"></div>
+        <add-btn @clicked="addItem"></add-btn>
+        <ul class='toDoList list-group"'>
+            <li v-for="(item, key) of items" class="list-group-item" 
+                :key=key>
 
-            <input type="text" class="form-control" 
-                :value ="item"
-                readonly
-                @blur = "saveItem($event, key)"
-            >
+                <input type="text" class="form-control" 
+                    :value ="item"
+                    readonly
+                    @blur = "saveItem($event, key)"
+                >
 
-            <edit-btn @clicked="editItem"></edit-btn>
-            <delete-btn @clicked="deleteItem(key)"></delete-btn>
+                <edit-btn @clicked="editItem"></edit-btn>
+                <delete-btn @clicked="deleteItem(key)"></delete-btn>
 
-        </li>
-    </ul>
+            </li>
+        </ul>
+    </div>
 
 </template>
 
@@ -23,13 +26,15 @@
 
     import EditBtn from "../components/common/EditBtn.vue"
     import DeleteBtn from "../components/common/DeleteBtn.vue"
+    import AddBtn from "../components/common/AddBtn.vue"
 
 
     export default {
         
         components: {
             EditBtn,
-            DeleteBtn
+            DeleteBtn,
+            AddBtn
         },
 
         data() {
@@ -55,7 +60,11 @@
             },            
             deleteItem : function(itemKey) {
                 this.items.splice(itemKey, 1);
+            },
+            addItem : function(itemKey) {
+                this.items.splice(itemKey, 1);
             }
+
 
         }
 
