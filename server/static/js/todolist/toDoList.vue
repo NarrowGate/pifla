@@ -18,6 +18,17 @@
 
             </li>
         </ul>
+
+    <div id="myModal" class="modal" v-if="showModal">
+
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+
+    </div>
+
+
     </div>
 
 </template>
@@ -42,7 +53,7 @@
             return {
                 items : ['a', 'b', 'abdsdfs'],
                 isEmpty: false,
-                showModal: false
+                showModal: false                
             }
 
         },
@@ -59,12 +70,33 @@
 
             },            
             deleteItem : function(itemKey) {
+
+                this.showModal = true;
+
+                setTimeout(this.openModel, 0);
                 this.items.splice(itemKey, 1);
             },
             addItem : function(itemKey) {
                 this.items.splice(itemKey, 1);
-            }
+            },
 
+            openModal: function() {
+                this.showModal = true;
+
+            },
+
+            openModel: function() {
+
+                const modal = document.getElementById("myModal");
+                modal.style.display = "block";
+
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                        this.showModal = false;
+                    }
+                }
+            }
 
         }
 
