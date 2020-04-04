@@ -1,5 +1,6 @@
 
 <template>
+
     <div>
         <div class="addContainer"></div>
         <add-btn @clicked="addItem"></add-btn>
@@ -19,16 +20,11 @@
             </li>
         </ul>
 
-    <div id="myModal" class="modal" v-if="showModal">
-
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Some text in the Modal..</p>
-        </div>
-
-    </div>
-
-
+        <modal v-if="showModal" 
+            :show-modal="showModal" 
+            @close="showModal = false"
+            >
+        </modal>
     </div>
 
 </template>
@@ -38,6 +34,7 @@
     import EditBtn from "../components/common/EditBtn.vue"
     import DeleteBtn from "../components/common/DeleteBtn.vue"
     import AddBtn from "../components/common/AddBtn.vue"
+    import Modal from "../components/common/Modal.vue"
 
 
     export default {
@@ -45,7 +42,8 @@
         components: {
             EditBtn,
             DeleteBtn,
-            AddBtn
+            AddBtn,
+            Modal
         },
 
         data() {
@@ -80,22 +78,21 @@
                 this.items.splice(itemKey, 1);
             },
 
-            openModal: function() {
-                this.showModal = true;
+            // openModal: function() {
+            //     this.showModal = true;
 
-            },
+            // },
 
             openModel: function() {
 
-                const modal = document.getElementById("myModal");
-                modal.style.display = "block";
+                // const modal = document.getElementById("myModal");
 
-                window.onclick = function(event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
-                        this.showModal = false;
-                    }
-                }
+                // window.onclick = function(event) {
+                //     if (event.target == modal) {
+                //         modal.style.display = "none";
+                //         this.showModal = false;
+                //     }
+                // }
             }
 
         }

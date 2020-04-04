@@ -137,4 +137,16 @@ a.actions:hover {
     cursor: pointer;
   }
 
+  .modal .btn {
+      width: 100px;
+  }
+
+  .blockOnModal {
+      display: block;
+  }
+
+  .btnWrap {
+      text-align: right;
+  }
+
 /* Modal  end */
