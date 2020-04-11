@@ -1,15 +1,16 @@
 <template>
     
 
-    <div id="myModal" class="modal" :class="{ blockOnModal : showModal }" @click="close">
+    <div id="myModal" class="modal" v-if="showModal">
 
         <div class="modal-content">
             <span class="close" @click="close">&times;</span>
-            <p>Some text in the Mosdfsdal..</p>
-
+            <br>
+            <p>Are you sure you want to delete</p>
+            <br>
             <div class="container btnWrap">
-                <button type="button" class="btn btn-success">Confirm</button>
-                <button type="button" class="btn btn-danger">Cancel</button>
+                <button type="button" class="btn btn-success" @click="ok">Confirm</button>
+                <button type="button" class="btn btn-danger" @click="close">Cancel</button>
             </div>
 
         </div>
@@ -26,30 +27,39 @@ module.exports = {
 
     props: ['showModal'],
 
-    data: function() {
-        return {
-            
-        }
-    },
-
     created: function() {
 
-console.log('created');
+        this.escapeHandler = (e) => {
 
-        // const modal = document.getElementById("myModal");
+            if(e.key === 'Escape' && this.showModal) {
+                this.close();
 
-        // window.onclick = function(event) {
-        //     if (event.target == modal) {
-        //         modal.style.display = "none";
-        //         this.showModal = false;
-        //     }
-        // }
+            }
 
+        }
+
+        document.addEventListener('keydown', this.escapeHandler);
+
+    },
+
+    watch: {
+        showModal: function() {    
+
+            if(!this.showModal) {
+                document.removeEventListener('keydown', this.escapeHandler)
+            } else {
+                document.addEventListener('keydown', this.escapeHandler);
+            }
+
+        }
     },
 
     methods: {
         close: function() {
             this.$emit('close');
+        },
+        ok: function() {
+            this.$emit('ok');
         }
     }
 

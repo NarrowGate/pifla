@@ -15,14 +15,15 @@
                 >
 
                 <edit-btn @clicked="editItem"></edit-btn>
-                <delete-btn @clicked="deleteItem(key)"></delete-btn>
+                <delete-btn @clicked="confirmDelete(key)"></delete-btn>
 
             </li>
         </ul>
 
-        <modal v-if="showModal" 
+        <modal 
             :show-modal="showModal" 
-            @close="showModal = false"
+            @close = "showModal = false"
+            @ok = "deleteItem"
             >
         </modal>
     </div>
@@ -67,32 +68,19 @@
                 event.target.closest('li').querySelector('input').readOnly = true;
 
             },            
-            deleteItem : function(itemKey) {
+            confirmDelete : function(itemKey) {
 
+                this.deleteItemkey = itemKey;  
                 this.showModal = true;
 
-                setTimeout(this.openModel, 0);
-                this.items.splice(itemKey, 1);
             },
+            deleteItem : function(itemKey) {
+
+                this.items.splice(this.deleteItemkey, 1);
+                this.showModal = false;
+
+            },            
             addItem : function(itemKey) {
-                this.items.splice(itemKey, 1);
-            },
-
-            // openModal: function() {
-            //     this.showModal = true;
-
-            // },
-
-            openModel: function() {
-
-                // const modal = document.getElementById("myModal");
-
-                // window.onclick = function(event) {
-                //     if (event.target == modal) {
-                //         modal.style.display = "none";
-                //         this.showModal = false;
-                //     }
-                // }
             }
 
         }
