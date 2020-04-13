@@ -5,13 +5,13 @@
         <div id="myModal" class="modal">
 
             <div class="modal-content">
-                <span class="close" @click="close">&times;</span>
+                <span class="close" @click="no">&times;</span>
                 <br>
                 <p>Are you sure you want to delete</p>
                 <br>
                 <div class="container btnWrap">
-                    <button type="button" class="btn btn-success" @click="ok">Confirm</button>
-                    <button type="button" class="btn btn-danger" @click="close">Cancel</button>
+                    <button type="button" class="btn btn-success" @click="yes">Confirm</button>
+                    <button type="button" class="btn btn-danger" @click="no">Cancel</button>
                 </div>
 
             </div>
@@ -25,7 +25,7 @@
 
 <script>
 
-module.exports = {
+export default {
 
 
     props: ['showModal'],
@@ -35,7 +35,7 @@ module.exports = {
         this.escapeHandler = (e) => {
 
             if(e.key === 'Escape' && this.showModal) {
-                this.close();
+                this.no();
 
             }
 
@@ -58,11 +58,11 @@ module.exports = {
     },
 
     methods: {
-        close: function() {
-            this.$emit('close');
+        no: function() {
+            this.$emit('no');
         },
-        ok: function() {
-            this.$emit('ok');
+        yes: function() {
+            this.$emit('yes');
         }
     }
 

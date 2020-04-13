@@ -15,19 +15,19 @@
                 >
 
                 <edit-btn @clicked="editItem"></edit-btn>
-                <delete-btn @clicked="confirmDelete(key)"></delete-btn>
+                
+                <delete-btn 
+                    :show-modal="showModal" 
+                    @clicked="confirmDelete(key)"
+                    @cancelDelete="showModal = false"
+                    @confirmDelete = "deleteItem">
+                </delete-btn>
 
             </li>
         </ul>
 
-            <modal 
-                :show-modal="showModal" 
-                @close = "showModal = false"
-                @ok = "deleteItem"
-                >
-            </modal>
-
         <portal-target name="modals"></portal-target>
+
     </div>
 
 </template>
@@ -37,7 +37,6 @@
     import EditBtn from "../components/common/EditBtn.vue"
     import DeleteBtn from "../components/common/DeleteBtn.vue"
     import AddBtn from "../components/common/AddBtn.vue"
-    import Modal from "../components/common/Modal.vue"
 
 
     export default {
@@ -45,8 +44,7 @@
         components: {
             EditBtn,
             DeleteBtn,
-            AddBtn,
-            Modal
+            AddBtn
         },
 
         data() {
