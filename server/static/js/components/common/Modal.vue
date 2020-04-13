@@ -1,21 +1,24 @@
 <template>
     
+    <portal to="modals" v-if="showModal">
 
-    <div id="myModal" class="modal" v-if="showModal">
+        <div id="myModal" class="modal">
 
-        <div class="modal-content">
-            <span class="close" @click="close">&times;</span>
-            <br>
-            <p>Are you sure you want to delete</p>
-            <br>
-            <div class="container btnWrap">
-                <button type="button" class="btn btn-success" @click="ok">Confirm</button>
-                <button type="button" class="btn btn-danger" @click="close">Cancel</button>
+            <div class="modal-content">
+                <span class="close" @click="close">&times;</span>
+                <br>
+                <p>Are you sure you want to delete</p>
+                <br>
+                <div class="container btnWrap">
+                    <button type="button" class="btn btn-success" @click="ok">Confirm</button>
+                    <button type="button" class="btn btn-danger" @click="close">Cancel</button>
+                </div>
+
             </div>
 
         </div>
 
-    </div>
+    </portal>
 
 
 </template>

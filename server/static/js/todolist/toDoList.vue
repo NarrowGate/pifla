@@ -20,12 +20,14 @@
             </li>
         </ul>
 
-        <modal 
-            :show-modal="showModal" 
-            @close = "showModal = false"
-            @ok = "deleteItem"
-            >
-        </modal>
+            <modal 
+                :show-modal="showModal" 
+                @close = "showModal = false"
+                @ok = "deleteItem"
+                >
+            </modal>
+
+        <portal-target name="modals"></portal-target>
     </div>
 
 </template>
