@@ -35,7 +35,7 @@
 <script>
 
     import EditBtn from "../components/common/EditBtn.vue"
-    import DeleteBtn from "../components/common/DeleteBtn.vue"
+    import DeleteBtn from "./DeleteList.vue"
     import AddBtn from "../components/common/AddBtn.vue"
 
 

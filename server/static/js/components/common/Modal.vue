@@ -7,7 +7,7 @@
             <div class="modal-content">
                 <span class="close" @click="no">&times;</span>
                 <br>
-                <p>Are you sure you want to delete</p>
+                <slot></slot>                
                 <br>
                 <div class="container btnWrap">
                     <button type="button" class="btn btn-success" @click="yes">Confirm</button>
