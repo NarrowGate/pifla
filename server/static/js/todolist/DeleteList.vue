@@ -7,11 +7,12 @@
             @no = "no"
             @yes = "yes"        
         >
-            <p>Are you sure you want to delete this to do list?</p>        
+
+            <p>Are you sure you want to delete this to do list?</p>    
+
         </modal>
 
     </delete-btn>
-
 
 </template>
 
@@ -23,8 +24,10 @@
     export default {
 
         components : {
+
             DeleteBtn,
             Modal
+
         },
 
         props: ['showModal'],

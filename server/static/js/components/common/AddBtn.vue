@@ -1,24 +1,23 @@
 
 <template>
 
-    <a class="actions" @click="addClicked">
+    <a class="actions" @click="clicked">
         <i class="fa fa-plus" aria-hidden="true"></i>
+        <slot></slot>
     </a>
 
 </template>
 
 <script>
-    module.exports = {
 
-        data: function() {
-            return {
-                someData: 'kkskskksks'
-            }
-        },
+    export default {
+
         methods: {
-            addClicked: function() {
+            clicked: function() {
                 this.$emit('clicked');
             }
         }
+
     }
+
 </script>

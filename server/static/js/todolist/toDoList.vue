@@ -3,7 +3,14 @@
 
     <div>
         <div class="addContainer"></div>
-        <add-btn @clicked="addItem"></add-btn>
+        <add-item 
+            :show-modal= "showAddItemModal"
+            @clicked= "addItem"
+            @cancelAdd = "showAddItemModal = false"
+            @confirmAdd = "confirmAddItem" 
+        >
+        </add-item>
+
         <ul class='toDoList list-group"'>
             <li v-for="(item, key) of items" class="list-group-item" 
                 :key=key>
@@ -36,7 +43,7 @@
 
     import EditBtn from "../components/common/EditBtn.vue"
     import DeleteBtn from "./DeleteList.vue"
-    import AddBtn from "../components/common/AddBtn.vue"
+    import AddItem from "./AddItem.vue"
 
 
     export default {
@@ -44,7 +51,7 @@
         components: {
             EditBtn,
             DeleteBtn,
-            AddBtn
+            AddItem
         },
 
         data() {
@@ -52,7 +59,8 @@
             return {
                 items : ['a', 'b', 'abdsdfs'],
                 isEmpty: false,
-                showModal: false                
+                showModal: false,
+                showAddItemModal: false           
             }
 
         },
@@ -80,7 +88,14 @@
                 this.showModal = false;
 
             },            
-            addItem : function(itemKey) {
+            addItem : function() {
+
+                this.showAddItemModal = true;
+
+                console.log('please add item')
+            },
+            confirmAddItem: function() {
+                console.log('Confirm add item')
             }
 
         }
