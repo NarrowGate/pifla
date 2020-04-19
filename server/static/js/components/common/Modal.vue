@@ -38,6 +38,11 @@ export default {
                 this.no();
 
             }
+console.log(e.key);
+            if(e.key === 'Enter' && this.showModal) {
+                this.yes();
+
+            }
 
         }
 

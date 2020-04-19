@@ -10,7 +10,7 @@
 
             <p>Please add item</p>        
 
-            <input type="text" ref="newItem">
+            <input type="text" ref="newItem" autofocus>
             
         </modal>
 
