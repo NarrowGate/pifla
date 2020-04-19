@@ -9,6 +9,8 @@
         >
 
             <p>Please add item</p>        
+
+            <input type="text" ref="newItem">
             
         </modal>
 
@@ -43,7 +45,7 @@
             },
 
             yes: function() {
-                this.$emit('confirmAdd')
+                this.$emit('confirmAdd', this.$refs.newItem.value)
             }  
 
         }

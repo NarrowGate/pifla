@@ -94,8 +94,10 @@
 
                 console.log('please add item')
             },
-            confirmAddItem: function() {
-                console.log('Confirm add item')
+            confirmAddItem: function(item) {
+                console.log(item);
+                this.showAddItemModal = false;
+                this.items.push(item);
             }
 
         }
